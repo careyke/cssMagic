@@ -1,0 +1,18 @@
+.box{
+  width: 120px;
+  height: 120px;
+  background-color: antiquewhite;
+  box-shadow: 0 0 0 10px red,
+              0 0 0 15px blue;
+  margin: 15px;
+  display: inline-block;
+}
+.box1{
+  width: 120px;
+  height: 120px;
+  background-color: antiquewhite;
+  box-shadow: 0 0 0 5px blue inset,
+              0 0 0 15px red inset;
+  padding: 15px;
+  display: inline-block;
+}
