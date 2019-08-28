@@ -16,3 +16,31 @@
   padding: 15px;
   display: inline-block;
 }
+.box2{
+  width: 120px;
+  height: 120px;
+  background-color: antiquewhite;
+  border: 10px solid red;
+  outline: 5px dotted blue;
+  display: inline-block;
+}
+.box3{
+  width: 120px;
+  height: 120px;
+  background-color: antiquewhite;
+  border-radius: 10px;
+  border: 10px solid red;
+  outline: 5px solid blue;
+  display: inline-block;
+  margin: 0 20px;
+}
+.box4{
+  width: 120px;
+  height: 120px;
+  background-color: antiquewhite;
+  border: 20px solid red;
+  outline: 2px dotted blue;
+  outline-offset: -10px;
+  display: inline-block;
+  margin: 0 20px;
+}
