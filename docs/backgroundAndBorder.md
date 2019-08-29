@@ -80,6 +80,84 @@
 2. 边框外边的outline也是不占位置的，有被覆盖的风险。
 3. 圆角的outline不贴合，outline仍然是矩形的。
 
+### 2.背景图片定位
+需要实现背景图片的灵活定位
+#### background-position方案
+非常灵活的方案，可以定位任意的地方
+```js
+// html
+<div class="box">background-position</div>
+
+// css
+.box{
+  width: 200px;
+  height: 120px;
+  background-color: lightcyan;
+  background-image: url('./apple.png');
+  background-repeat: no-repeat;
+  background-position: right 20px bottom 20px;
+}
+```  
+![background-position.jpg](./images/background-position.jpg)
+
+#### background-origin方案
+针对三种box-sazing来定位背景图片
+
+```js
+// html
+<div class="box1">background-position</div>
+<div class="box2">background-origin</div>
+
+// css
+.box1{
+  display: inline-block;
+  width: 200px;
+  height: 120px;
+  background-color: lightcyan;
+  background-image: url('./apple.png');
+  background-repeat: no-repeat;
+  padding: 20px;
+  background-position: right 20px bottom 20px;
+}
+.box2{
+  display: inline-block;
+  width: 200px;
+  height: 120px;
+  background-color: lightcyan;
+  background-image: url('./apple.png');
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  padding: 20px;
+  background-origin: content-box;
+}
+```  
+![backgroud-origin.jpg](./images/backgroud-origin.jpg)
+
+可以看出，在这种场景中，使用backgroud-origin更加贴合，如果以后padding发生改变，这个方法修改的地方更少。
+
+#### calc()方案
+计算的方式
+```js
+// html
+<div class="box3">background-position</div>
+
+// css
+.box3{
+  width: 200px;
+  height: 120px;
+  background-color: lightcyan;
+  background-image: url('./apple.png');
+  background-repeat: no-repeat;
+  background-position: calc(100% - 20px) calc(100% - 10px);
+}
+```  
+![background-calc.jpg](./images/background-calc.jpg)
+
+
+
+
+
+
 
 
 

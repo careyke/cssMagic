@@ -1,0 +1,39 @@
+.box{
+  width: 200px;
+  height: 120px;
+  background-color: lightcyan;
+  background-image: url('./apple.png');
+  background-repeat: no-repeat;
+  background-position: right 20px bottom 20px;
+  margin-bottom: 100px;
+}
+.box1{
+  display: inline-block;
+  width: 200px;
+  height: 120px;
+  background-color: lightcyan;
+  background-image: url('./apple.png');
+  background-repeat: no-repeat;
+  padding: 20px;
+  background-position: right 20px bottom 20px;
+  margin-bottom: 100px;
+}
+.box2{
+  display: inline-block;
+  width: 200px;
+  height: 120px;
+  background-color: lightcyan;
+  background-image: url('./apple.png');
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  padding: 20px;
+  background-origin: content-box;
+}
+.box3{
+  width: 200px;
+  height: 120px;
+  background-color: lightcyan;
+  background-image: url('./apple.png');
+  background-repeat: no-repeat;
+  background-position: calc(100% - 20px) calc(100% - 10px);
+}
