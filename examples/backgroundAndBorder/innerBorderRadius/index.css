@@ -1,0 +1,23 @@
+.box{
+  height: 150px;
+  width: 200px;
+  background-color: antiquewhite;
+  padding: 20px;
+  margin-bottom: 100px;
+}
+.inner{
+  height: 110px;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: aquamarine;
+}
+.box1{
+  width: 200px;
+  height: 110px;
+  padding: 20px;
+  margin: 50px;
+  border-radius: 20px;
+  background-color: aquamarine;
+  outline: 20px solid antiquewhite;
+  box-shadow: 0 0 0 10px antiquewhite;
+}

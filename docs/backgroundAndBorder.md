@@ -153,6 +153,64 @@
 ```  
 ![background-calc.jpg](./images/background-calc.jpg)
 
+### 3.边框内圆角
+#### 多个元素组合
+这种方式非常灵活，可以借助背景来实现多样的边框效果
+```js
+// html
+<div class="box">
+  <div class="inner">两个元素实现</div>
+</div>
+
+// css
+.box{
+  height: 150px;
+  width: 200px;
+  background-color: antiquewhite;
+  padding: 20px;
+}
+.inner{
+  height: 110px;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: aquamarine;
+}
+```  
+![mulBoxes.jpg](./images/mulBoxes.jpg)
+
+#### 借助box-shadow和outline来实现
+利用box-shadow和outline对于圆角边框的不同实现，来实现一个元素实现内部圆角的效果
+```js
+// html
+<div class="box1">box-shadow & outline</div>
+
+// css
+.box1{
+  width: 200px;
+  height: 110px;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: aquamarine;
+  outline: 20px solid antiquewhite; //不贴合圆角
+  box-shadow: 0 0 0 10px antiquewhite; // 贴合圆角
+}
+```  
+![boxShadow_outline.jpg](./images/boxShadow_outline.jpg)
+
+注意点：
+1. 圆角半径r、outline宽度m和box-shadow的宽度n必须要满足这个关系：**(Math.sqrt(2)-1)*r < n < m**
+2. 这里利用的是outline不贴合圆角的效果来实现的，可以归属为一种hack，未来如果浏览器修正了无法使用这种方式了。
+
+
+
+
+
+
+
+
+
+
+
 
 
 
