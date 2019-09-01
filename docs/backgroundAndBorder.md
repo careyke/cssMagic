@@ -201,12 +201,111 @@
 1. 圆角半径r、outline宽度m和box-shadow的宽度n必须要满足这个关系：**(Math.sqrt(2)-1)*r < n < m**
 2. 这里利用的是outline不贴合圆角的效果来实现的，可以归属为一种hack，未来如果浏览器修正了无法使用这种方式了。
 
+### 4.条纹背景
+使用linear-gradient()和background-size来实现条纹背景
 
+##### linear-gradient()渐变角度
+- 角度是渐变线与渐变容器中心点向上垂直线之间的夹角
+- 0deg的意思就是to top，默认是to bottom,也就是180deg
+- 顶角关键词的**渐变线角度**和渐变容器尺寸有关，比如top right方向时，渐变线需要和左上角到右下角的对角线**垂直**，所以角度和容器的尺寸是息息相关的
 
+##### linear-gradient()一些规则
+1. 如果多个色标具有相同的位置，它们会产生一个无限小的过渡区域， 过渡的起止色分别是第一个和最后一个指定值。从效果上看，颜色会在那个位置**突然变化**，而不是一个平滑的渐变过程
+2. 如果某个色标的位置值比整个列表中在它之前的色标的位置值都要小，则该色标的位置值会被设置为它前面所有色标位置值的**最大值**
 
+##### linear-gradient的参考文章
+[你真的理解CSS的linear-gradient？](https://www.w3cplus.com/css3/do-you-really-understand-css-linear-gradients.html)
 
+##### 水平条纹背景
+```js
+// html
+<div class="box">水平条纹背景</div>
 
+// css
+.box{
+  width: 200px;
+  height: 160px;
+  background: linear-gradient(180deg,red 25%,orange 25%,orange 50%,blue 50%,blue 75%,green 75%);
+  background-size: auto 50%;
+}
+```  
+![horizion-stripe.jpg](./images/horizion-stripe.jpg)
 
+##### 垂直条纹背景
+```js
+// html
+<div class="box1">垂直条纹背景</div>
+
+// css
+.box1{
+  width: 200px;
+  height: 160px;
+  background: linear-gradient(90deg,red 25%,orange 25%,orange 50%,blue 50%,blue 75%,green 75%);
+  background-size: 40% auto;
+}
+```  
+![vetical-stripe.jpg](./images/vetical-stripe.jpg)
+
+##### 斜向条纹
+
+###### 1.使用linear-gradient和background生成
+使用background-size是为了使用它的无限重复效果
+```js
+// html
+<div class="box2">斜向条纹背景</div>
+
+// css
+.box2 {
+  width: 200px;
+  height: 160px;
+  background: linear-gradient(
+    45deg,
+    red 0 25%,
+    orange 25% 50%,
+    red 50% 75%,
+    orange 75%
+  );
+  background-size: 40px 40px; //利用这个属性来限定条纹的宽度，而且无限重复
+}
+```  
+![xieStripe1.jpg](./images/xieStripe1.jpg)
+
+这种方式是通过设置一个小的区域，然后**无缝拼接**形成的。但是这个方式的只适合45deg的场景，如果是其他的角度的话，并不能实现这种无缝拼接。
+
+###### 2.使用repeating-linear-gradient
+```js
+// html
+<div class="box3">斜向条纹背景repeating 45deg</div>
+<div class="box4">斜向条纹背景repeating 60deg</div>
+
+// css
+.box3 {
+  width: 200px;
+  height: 160px;
+  color: #fff;
+  background: repeating-linear-gradient(
+    45deg,
+    blue 0 20px,
+    orange 20px 40px,
+    green 40px 60px
+  );
+  display: inline-block;
+}
+
+.box4 {
+  width: 200px;
+  height: 160px;
+  color: #fff;
+  background: repeating-linear-gradient(
+    60deg,
+    blue 0 20px,
+    orange 20px 40px,
+    green 40px 60px
+  );
+  display: inline-block;
+}
+```  
+![xieStripe2.jpg](./images/xieStripe2.jpg)
 
 
 
