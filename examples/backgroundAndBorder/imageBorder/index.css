@@ -1,0 +1,68 @@
+.box {
+  height: 100px;
+  width: 300px;
+  padding: 30px;
+  background-image: url("./timg.jpeg");
+  background-size: cover;
+  margin-bottom: 50px;
+}
+.inner {
+  background-color: #ffffff;
+  height: 100%;
+}
+.box1 {
+  height: 100px;
+  width: 300px;
+  border: 30px solid #ffffff;
+  border-image-source: url("./timg.jpeg");
+  border-image-slice: 30 30 30 30;
+  margin-bottom: 50px;
+}
+.box2 {
+  height: 100px;
+  width: 300px;
+  border: 30px solid transparent;
+  background: linear-gradient(#fff, #fff), url("./timg.jpeg");
+  background-clip: padding-box, border-box;
+  background-origin: border-box;
+  background-size: cover;
+  margin-bottom: 50px;
+}
+.box3 {
+  height: 100px;
+  width: 300px;
+  border: 30px solid transparent;
+  background: linear-gradient(#fff 0 100%) padding-box,
+    repeating-linear-gradient(
+        135deg,
+        red 0 10px,
+        #fff 10px 20px,
+        #58a 20px 30px,
+        #fff 30px 40px
+      )
+      border-box;
+  margin-bottom: 50px;
+}
+@keyframes ant {
+  form{
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100% 100%;
+  }
+}
+.box4 {
+  height: 100px;
+  width: 300px;
+  border: 1px solid transparent;
+  background: linear-gradient(#fff 0 100%) padding-box,
+    repeating-linear-gradient(
+      135deg,
+      red 0 10px,
+      #fff 10px 20px,
+      #58a 20px 30px,
+      #fff 30px 40px
+    );
+  background-size: 40px 40px;
+  animation: ant 10s linear infinite;
+}

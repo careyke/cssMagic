@@ -307,12 +307,126 @@
 ```  
 ![xieStripe2.jpg](./images/xieStripe2.jpg)
 
+### 5.图像边框
+希望可以实现图像边框，并且随着盒子尺寸的变化，边框各处的背景也随之变化，边框背景图片可以自动延伸并且覆盖整个边框位置。
 
+#### 利用两个元素实现
+```js
+// html
+<div class="box">
+  <div class="inner">利用两个元素实现</div>
+</div>
 
+// css
+.box{
+  height: 100px;
+  width: 300px;
+  padding: 30px;
+  background-image: url('./timg.jpeg');
+  background-size: cover;
+}
+.inner{
+  background-color: #ffffff;
+  height: 100%;
+}
+``` 
+![borderImage1.jpg](./images/borderImage1.jpg)
+利用这种方式伪造边框，但是需要借助两个元素才可以实现。
 
+#### 一个元素实现(border-image)
+[border-image用法参考](https://aotu.io/notes/2016/11/02/border-image/index.html)
 
+```js
+// html
+<div class="box1">border-image</div>
 
+// css
+.box1{
+  height: 100px;
+  width: 300px;
+  border: 30px solid #ffffff;
+  border-image-source: url('./timg.jpeg');
+  border-image-slice: 30 30 30 30;
+}
+```  
+![borderImage2.jpg](./images/borderImage2.jpg)
 
+使用这种方式实现的图像边框会导致，四个角所占据的图像区域不变，无法做到随尺寸变化而变动。
+
+#### 使用background渐变实现
+```js
+// html
+<div class="box2">background</div>
+
+// css
+.box2{
+  height: 100px;
+  width: 300px;
+  border: 30px solid transparent;
+  background: linear-gradient(#fff,#fff),url('./timg.jpeg');
+  background-clip: padding-box,border-box;
+  background-origin: border-box;
+  background-size: cover;
+}
+```  
+![borderImage3.jpg](./images/borderImage3.jpg)
+
+这种方式可以达到预期的结果。边框图片在随着尺寸的变化而变化。
+
+#### 使用信封边框的效果
+```js
+// html
+<div class="box3">信封边框</div>
+
+// css
+.box3 {
+  height: 100px;
+  width: 300px;
+  border: 30px solid transparent;
+  background: linear-gradient(#fff 0 100%) padding-box,
+    repeating-linear-gradient(
+        135deg,
+        red 0 10px,
+        #fff 10px 20px,
+        #58a 20px 30px,
+        #fff 30px 40px
+      )
+      border-box;
+}
+```  
+
+#### 实现蚂蚁行军图
+```js
+// html
+<div class="box4">蚂蚁行军</div>
+
+// css
+@keyframes ant {
+  form{
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100% 100%;
+  }
+}
+.box4 {
+  height: 100px;
+  width: 300px;
+  border: 1px solid transparent;
+  background: linear-gradient(#fff 0 100%) padding-box,
+    repeating-linear-gradient(
+      135deg,
+      red 0 10px,
+      #fff 10px 20px,
+      #58a 20px 30px,
+      #fff 30px 40px
+    );
+  background-size: 40px 40px; //如果不设置的话就是100% 100%，没有了动画运动的空间，一直都是充满的
+  animation: ant 10s linear infinite;
+}
+
+```  
+![borderImage4.jpg](./images/borderImage4.jpg)
 
 
 
