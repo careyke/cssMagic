@@ -1,0 +1,15 @@
+.container{
+  width: 300px;
+  height: 300px;
+  margin: 100px;
+  background-color: #eeeeee;
+}
+.left{
+  display: inline;
+  background-color: aquamarine;
+}
+.center{
+  display: inline;
+  background-color: coral;
+  overflow: hidden;
+}
