@@ -177,7 +177,9 @@ IFC只有inline-level-box参与，它规定了内部inline-level-box的定位和
 2. **水平方向**上的 margin，border 和 padding在框之间得到保留。垂直方向上display为inline-block的box会保留margin，border 和 padding。
 3. 框在垂直方向上可以以不同的方式对齐：它们的顶部或底部对齐，或根据其中**文字的基线对齐**
 
-
+### 参考资料
+1. [10 分钟理解 BFC 原理](https://zhuanlan.zhihu.com/p/25321647)
+2. [BFC与IFC概念理解+布局规则+形成方法+用处](https://segmentfault.com/a/1190000009545742)
 
 
 
